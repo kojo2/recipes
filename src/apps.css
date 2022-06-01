@@ -1,0 +1,24 @@
+html {
+  background-color: rgb(41, 41, 41);
+  color: white;
+  padding: 20px 20px 20px 0;
+  margin-left: -1px;
+}
+
+table {
+  border-collapse: collapse;
+}
+th {
+  font-size: 24px;
+}
+
+td,
+th {
+  text-align: center;
+  padding: 2px 4px;
+  border: solid 1px white;
+}
+
+img.grid {
+  border-radius: 100%;
+}
