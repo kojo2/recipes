@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
-const MealPlan = ({ data, key }) => {
+const MealPlan = ({ data }) => {
   const navigate = useNavigate();
 
   return (
     <div
-      key={key}
       style={{
         cursor: "pointer",
         width: "240px",

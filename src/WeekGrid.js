@@ -12,7 +12,7 @@ const WeekGrid = () => {
   const navigate = useNavigate();
   const [forceRefresh, setForceRefresh] = useState(false);
   useEffect(() => {
-    if (refresh === "f") return;
+    if (refresh === "f" && Object.values(mplans).length) return;
     let promises = [];
     let _mplans = {};
     for (let i = 0; i < 3 * 7; i++) {
@@ -120,20 +120,17 @@ const WeekGrid = () => {
             <tr>
               <th></th>
               {days.map((day) => (
-                <th>{day}</th>
+                <th key={day}>{day}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {meals.map((meal) => (
-              <tr>
+              <tr key={meal}>
                 <th>{meal}</th>
                 {days.map((day) => (
-                  <td>
-                    <MealPlan
-                      data={mplans[`${day}:${meal}`]}
-                      key={`${day}:${meal}`}
-                    />
+                  <td key={`${day}:${meal}`}>
+                    <MealPlan data={mplans[`${day}:${meal}`]} />
                   </td>
                 ))}
               </tr>

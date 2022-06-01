@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import useRedux from "./redux/useRedux";
 
@@ -20,35 +20,32 @@ const ShoppingList = () => {
 
   return (
     <div style={{ color: "white" }}>
-      <div style={{ padding: "0px 20px" }}>
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "space-between",
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <button
+          onClick={() => {
+            navigate("/f");
           }}
         >
-          <button
-            onClick={() => {
-              navigate("/f");
-            }}
-          >
-            Planner
-          </button>
-        </div>
-        {mplans ? (
-          <ul>
-            {Object.keys(weekIngredients).map((key) => (
-              <li>
-                {key}: {weekIngredients[key]}
-              </li>
-            ))}
-            {/* <pre>{JSON.stringify(weekIngredients, null, 2)}</pre> */}
-          </ul>
-        ) : (
-          "Loading"
-        )}
+          Planner
+        </button>
       </div>
+      {mplans ? (
+        <ul style={{ listStyleType: "none" }}>
+          {Object.keys(weekIngredients).map((k) => (
+            <li style={{ marginBottom: "5px" }} key={k}>
+              {k} - {weekIngredients[k]}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        "Loading"
+      )}
     </div>
   );
 };
