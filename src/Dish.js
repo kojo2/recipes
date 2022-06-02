@@ -106,7 +106,7 @@ const Dish = () => {
               padding: "5px",
               width: "80vw",
               borderRadius: "10px",
-              height: "10vh",
+              minHeight: "10vh",
               display: "flex",
               flexDirection: "col",
               justifyContent: "center",
