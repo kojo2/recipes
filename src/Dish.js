@@ -20,7 +20,7 @@ const Dish = () => {
   }, [id]);
 
   let d = data?.instructions.split(". ") || [];
-  const inst = [...d, "Finished"];
+  const inst = [...d, "Enjoy!"];
   return (
     <>
       <div style={{ padding: "5px 10px", display: "flex" }}>

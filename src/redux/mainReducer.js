@@ -19,6 +19,7 @@ export function mainReducer(state = R.clone(initialState), action) {
         loading: action.payload,
       };
       return state;
+
     default:
       return state;
   }

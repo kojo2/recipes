@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import useRedux from "./redux/useRedux";
 
 const ShoppingList = () => {
   const { mplans } = useRedux();
+  const navigate = useNavigate();
 
   const weekIngredients = {};
   Object.values(mplans).forEach((value) => {
+    if (!value.visible) return;
     value.ingredients.forEach((ingredient) => {
       let ing = ingredient.ingredient;
       if (weekIngredients[ing]) {
@@ -18,6 +21,13 @@ const ShoppingList = () => {
 
   return (
     <div style={{ color: "white" }}>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Planner
+      </button>
       {mplans ? (
         <ul style={{ listStyleType: "none" }}>
           {Object.keys(weekIngredients)

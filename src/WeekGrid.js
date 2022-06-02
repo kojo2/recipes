@@ -38,7 +38,10 @@ const WeekGrid = () => {
                 <th>{meal}</th>
                 {days.map((day) => (
                   <td key={`${day}:${meal}`}>
-                    <MealPlan data={mplans[`${day}:${meal}`]} />
+                    <MealPlan
+                      data={mplans[`${day}:${meal}`]}
+                      k={`${day}:${meal}`}
+                    />
                   </td>
                 ))}
               </tr>
