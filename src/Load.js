@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { saveToLocal } from "./localStorageLayer";
 import { updateRecipes } from "./redux/mainActions";
 import useRedux from "./redux/useRedux";
 
@@ -28,7 +29,7 @@ const Load = () => {
           </button>
         </div>
         <textarea
-          value={JSON.stringify(mplans)}
+          value={mp}
           style={{ width: "50vw", height: "50vh" }}
           onChange={(e) => {
             setMp(e.target.value);
@@ -37,7 +38,8 @@ const Load = () => {
       </div>
       <button
         onClick={() => {
-          dispatch(JSON.parse(updateRecipes(mp)));
+          dispatch(updateRecipes(JSON.parse(mp)));
+          saveToLocal(JSON.parse(mp));
         }}
       >
         Load
