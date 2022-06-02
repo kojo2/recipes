@@ -21,7 +21,7 @@ const Load = () => {
         >
           <button
             onClick={() => {
-              navigate("/f");
+              navigate("/");
             }}
           >
             Planner

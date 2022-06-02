@@ -17,7 +17,7 @@ const Save = () => {
         >
           <button
             onClick={() => {
-              navigate("/f");
+              navigate("/");
             }}
           >
             Planner

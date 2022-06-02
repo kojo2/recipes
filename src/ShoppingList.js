@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
 import useRedux from "./redux/useRedux";
 
 const ShoppingList = () => {
   const { mplans } = useRedux();
-  const navigate = useNavigate();
 
   const weekIngredients = {};
   Object.values(mplans).forEach((value) => {
@@ -20,28 +18,15 @@ const ShoppingList = () => {
 
   return (
     <div style={{ color: "white" }}>
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <button
-          onClick={() => {
-            navigate("/f");
-          }}
-        >
-          Planner
-        </button>
-      </div>
       {mplans ? (
         <ul style={{ listStyleType: "none" }}>
-          {Object.keys(weekIngredients).map((k) => (
-            <li style={{ marginBottom: "5px" }} key={k}>
-              {k} - {weekIngredients[k]}
-            </li>
-          ))}
+          {Object.keys(weekIngredients)
+            .sort((a, b) => a.localeCompare(b))
+            .map((k) => (
+              <li style={{ marginBottom: "5px" }} key={k}>
+                {k} - {weekIngredients[k]}
+              </li>
+            ))}
         </ul>
       ) : (
         "Loading"
